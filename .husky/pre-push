@@ -1,0 +1,13 @@
+#!/usr/bin/env sh
+. "$(dirname -- "$0")/_/husky.sh"
+
+echo "[PRE-PUSH] Running pre-push hook"
+
+# Run lint flutter and tests
+echo "[PRE-PUSH] Running flutter analyze"
+flutter analyze --no-fatal-infos
+echo "[PRE-PUSH] Running flutter test"
+flutter test
+
+echo "[PRE-PUSH] Pre-push hook finished successfully"
+exit 0

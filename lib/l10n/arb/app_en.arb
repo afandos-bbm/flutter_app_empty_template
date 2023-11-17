@@ -1,0 +1,7 @@
+{
+    "@@locale": "en",
+    "appName": "Template App",
+    "@appName": {
+        "description": "The name of the app"
+    }
+}

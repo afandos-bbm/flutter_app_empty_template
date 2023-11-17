@@ -1,0 +1,70 @@
+#!/usr/bin/env sh
+. "$(dirname -- "$0")/_/husky.sh"
+
+echo "[PRE-COMMIT] Running pre-commit hook"
+
+# Read .env file
+echo "[PRE-COMMIT] Reading .env"
+export $(cat .env | xargs)
+
+
+# Check if /dev/tty is available
+if [ -e /dev/tty ]
+then
+    echo "[PRE-COMMIT] No /dev/tty available - skipping version input"
+else
+    # Read version
+    read -p "[PRE-COMMIT] Enter version (current: $version): " input_version < /dev/tty
+fi
+
+# Check if version is not empty
+if [ -z "$input_version" ]
+then
+    echo "[PRE-COMMIT] Input version is empty - using .env version"
+    version=$version
+else
+    # Check if version is valid
+    if ! [[ $input_version =~ ^[0-9]+\.[0-9]+\.[0-9]+$ ]];
+    then
+        echo "[PRE-COMMIT] Version is not valid - using .env version ($version)"
+        version=$version
+    else
+        echo "[PRE-COMMIT] Version is valid - using new version ($input_version) (old version: $version)"
+        sed -i '' "s/version=.*/version=\"$input_version\"/" .env
+        version=$input_version
+    fi
+fi
+
+# Check if version is valid
+if ! [[ $version =~ ^[0-9]+\.[0-9]+\.[0-9]+$ ]];
+then
+    echo "[PRE-COMMIT] Version is not valid - canceling commit"
+    exit 1 
+fi
+
+# Create full version name
+full_version="$version_name - v$version - $(date +%d-%m-%Y)"
+
+# Display current version
+echo "[PRE-COMMIT] Current version: $full_version"
+
+# Add version tag to README.md
+echo "[PRE-COMMIT] Updating README.md"
+sed -i '' "s/## VERSION .*/## VERSION $full_version/" README.md
+
+# Add version tag to CHANGELOG.md
+echo "[PRE-COMMIT] Updating CHANGELOG.md"
+sed -i '' "s/## VERSION .*/## VERSION $full_version/" CHANGELOG.md
+
+# Add version tag to pubspect.yaml
+echo "[PRE-COMMIT] Updating pubspec.yaml"
+sed -i '' "s/version: .*/version: $version/" pubspec.yaml
+
+#############################################
+
+# Add changes to commit
+echo "[PRE-COMMIT] Adding changes to commit"
+git add README.md CHANGELOG.md pubspec.yaml
+
+echo "[PRE-COMMIT] Pre-commit hook finished successfully"
+exit 0

@@ -1,5 +1,9 @@
 # Flutter Project Template
 
+## VERSION Template - v0.0.1 - 16-11-2023
+
+![GitHub license](https://img.shields.io/github/license/afandos-bbm/flutter_app_empty_template?style=flat-square)
+
 This is a Flutter project template that comes fully configured with some of the most commonly used packages and features. It's designed to help you get started with your Flutter project quickly and easily.
 
 ## Features
