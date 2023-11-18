@@ -5,8 +5,6 @@ part 'error.freezed.dart';
 /// Error codes for the application.
 enum ErrorCodes {
   generic,
-  forbidden,
-  notAuthenticated,
 }
 
 /// Base class for all errors in the application.

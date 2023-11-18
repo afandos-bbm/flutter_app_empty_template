@@ -22,7 +22,7 @@ class App extends StatelessWidget {
               builder: (context, state) {
                 final selectedLocale = Locale(state.selectedLanguage);
                 return MaterialApp.router(
-                  title: 'We Cancer Survivors',
+                  title: 'App Name',
                   debugShowCheckedModeBanner: false,
                   localizationsDelegates: const [
                     ...AppLocalizations.localizationsDelegates,

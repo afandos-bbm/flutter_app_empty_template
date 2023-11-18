@@ -10,10 +10,6 @@ extension AppLocalizationsX on BuildContext {
         switch (key) {
           case ErrorCodes.generic:
             return l10n.error_generic;
-          case ErrorCodes.forbidden:
-            return l10n.error_business_forbidden;
-          case ErrorCodes.notAuthenticated:
-            return l10n.error_business_not_authenticated;
         }
       };
 }

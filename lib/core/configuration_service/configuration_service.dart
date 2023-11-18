@@ -9,11 +9,11 @@ enum Flavor {
 class Configuration {
   Configuration({
     required this.appUrl,
-    required this.hadeaBackUrl,
+    required this.backUrl,
   });
 
   final String appUrl;
-  final String hadeaBackUrl;
+  final String backUrl;
 }
 
 class ConfigurationService {
@@ -23,17 +23,17 @@ class ConfigurationService {
     switch (flavor) {
       case Flavor.development:
         _config = Configuration(
-          hadeaBackUrl: 'https://backend.dev.example.com',
+          backUrl: 'https://backend.dev.example.com',
           appUrl: 'http://localhost:3000',
         );
       case Flavor.staging:
         _config = Configuration(
-          hadeaBackUrl: 'https://backend.qa.example.com',
+          backUrl: 'https://backend.qa.example.com',
           appUrl: 'https://frontend.qa.example.com',
         );
       case Flavor.production:
         _config = Configuration(
-          hadeaBackUrl: 'https://backend.qa.example.com',
+          backUrl: 'https://backend.qa.example.com',
           appUrl: 'https://frontend.qa.example.com',
         );
     }
@@ -56,7 +56,7 @@ class ConfigurationService {
   Configuration get config => _config;
 
   String get appUrl => _config.appUrl;
-  String get hadeaBackUrl => _config.hadeaBackUrl;
+  String get hadeaBackUrl => _config.backUrl;
   Flavor get currentFlavor => flavor;
 
   static ConfigurationService of(BuildContext context) {
