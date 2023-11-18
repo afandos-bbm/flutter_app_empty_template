@@ -13,6 +13,8 @@ Future<void> initGetIt() async {
     SharedPreferencesService.initSharedPreferencesService,
   );
 
+  await locator.isReady<SharedPreferencesService>();
+
   // * Core
   locator.registerLazySingleton<ThemeService>(ThemeService.new);
   locator.registerLazySingleton<AppInfo>(AppInfo.new);

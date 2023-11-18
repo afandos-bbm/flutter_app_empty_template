@@ -4,7 +4,5 @@ import 'package:flutter_app_empty_template/features/app/app.dart';
 
 void main() {
   ConfigurationService.initialize(Flavor.development);
-  bootstrap(
-    () => const App(),
-  );
+  bootstrap(() => const App());
 }
