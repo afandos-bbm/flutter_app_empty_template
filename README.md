@@ -1,4 +1,4 @@
-# Flutter Project Template 🌹
+# 🌹 Flutter Project Template
 
 ## VERSION Template - v0.0.1 - 18-11-2023
 
@@ -125,6 +125,123 @@ flutter run --flavor staging --target lib/main_staging.dart
 
 ```bash
 flutter run --flavor production --target lib/main_production.dart --release
+```
+
+## 🧪 Running Tests
+
+To run the unit tests use the following command:
+
+```bash
+$ flutter test --coverage --test-randomize-ordering-seed random
+```
+
+To view the generated coverage report you can use [lcov](https://github.com/linux-test-project/lcov).
+
+```bash
+# Generate Coverage Report
+$ genhtml coverage/lcov.info -o coverage/
+
+# Open Coverage Report
+$ open coverage/index.html
+```
+
+## 🌐 Working with Translations
+
+This project relies on [flutter_localizations]() and follows the [official internationalization guide for Flutter]().
+
+### Adding Strings
+
+1. To add a new localizable string, open the `app_en.arb` file at `lib/l10n/arb/app_en.arb`.
+
+```arb
+{
+    "@@locale": "en",
+    "appName": "Template App",
+    "@appName": {
+        "description": "App Name"
+    }
+}
+```
+
+2. Then add a new key/value and description
+
+```arb
+{
+    "@@locale": "en",
+    "appName": "Template App",
+    "@appName": {
+        "description": "App Name"
+    }
+    "helloWorld": "Hello World",
+    "@helloWorld": {
+       "description": "Hello World"
+    }
+}
+```
+
+3. Use the new string
+
+```dart
+import 'package:flutter_app_empty_template/l10n/l10n.dart';
+
+@override
+Widget build(BuildContext context) {
+  final l10n = context.l10n;
+  return Text(l10n.helloWorld);
+}
+```
+
+### Adding Supported Locales
+
+Update the `CFBundleLocalizations` array in the `Info.plist` at `ios/Runner/Info.plist` to include the new locale. (IOS)
+
+```xml
+    ...
+
+    <key>CFBundleLocalizations</key>
+	<array>
+		<string>en</string>
+		<string>es</string>
+	</array>
+
+    ...
+```
+
+### Adding Translations
+
+1. For each supported locale, add a new ARB file in `lib/l10n/arb`.
+
+```
+├── l10n
+│   ├── arb
+│   │   ├── app_en.arb
+│   │   └── app_es.arb
+```
+
+2. Add the translated strings to each `.arb` file:
+
+`app_en.arb`
+
+```arb
+{
+    "@@locale": "en",
+    "appName": "Template App",
+    "@appName": {
+        "description": "App Name"
+    }
+}
+```
+
+`app_es.arb`
+
+```arb
+{
+    "@@locale": "es",
+    "appName": "Plantilla de App",
+    "@appName": {
+       "description": "Nombre de la App"
+    }
+}
 ```
 
 ## 📄 License

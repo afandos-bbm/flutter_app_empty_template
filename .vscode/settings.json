@@ -1,6 +1,8 @@
 {
     "cSpell.words": [
-        "cupertino"
+        "cupertino",
+        "genhtml",
+        "lcov"
     ],
     "files.exclude": {
         "**/*.freezed.dart": true,
