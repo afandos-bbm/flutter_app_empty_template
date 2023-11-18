@@ -5,7 +5,7 @@ import 'package:flutter/foundation.dart';
 import 'package:package_info_plus/package_info_plus.dart';
 
 /// This class is responsible for providing information about the app
-class AppInfo {
+class DeviceInfo {
   final DeviceInfoPlugin deviceInfoPlugin = DeviceInfoPlugin();
 
   /// Returns the device information depending on the platform
