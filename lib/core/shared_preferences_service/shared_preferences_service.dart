@@ -18,6 +18,8 @@ class SharedPreferencesService {
   static const String themeModeKey = 'themeModeKey';
   static const String selectedLanguageKey = 'selectedLanguageKey';
 
+  // TODO: Add your storage keys here
+
   set themeMode(String value) => _saveToSharedPreferences(themeModeKey, value);
   String get themeMode => _getStringValueFromSharedPreferences(themeModeKey);
 
@@ -25,6 +27,8 @@ class SharedPreferencesService {
       _saveToSharedPreferences(selectedLanguageKey, value);
   String get selectedLanguage =>
       _getStringValueFromSharedPreferences(selectedLanguageKey);
+
+  // TODO: Add your storage getters and setters here
 
   /// Saves a value to shared preferences based on the proved key.
   ///

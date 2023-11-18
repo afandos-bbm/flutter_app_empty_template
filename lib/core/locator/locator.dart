@@ -18,4 +18,6 @@ Future<void> initGetIt() async {
   // * Core
   locator.registerLazySingleton<ThemeService>(ThemeService.new);
   locator.registerLazySingleton<AppInfo>(AppInfo.new);
+
+  // TODO: Register your services here
 }

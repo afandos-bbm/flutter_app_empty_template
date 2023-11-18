@@ -1,5 +1,6 @@
 import 'dart:developer';
 
+/// Levels of log messages
 enum LogLevel {
   info,
   debug,
@@ -7,6 +8,9 @@ enum LogLevel {
   warning,
 }
 
+/// Extension on [LogLevel] to provide a color for each level
+/// when logging to the console.
+/// See [l] for more information.
 extension LogLevelExt on LogLevel {
   String levelColor() {
     switch (this) {
@@ -22,8 +26,16 @@ extension LogLevelExt on LogLevel {
   }
 }
 
+/// Resets the color of the console.
+/// See [l] for more information.
 String get _resetCode => '\x1B[0m';
 
+/// Logger wrapper for the [log] function.
+/// Logs the given [message] to the console.
+/// Optionally, a [level] can be provided to color the message.
+/// Optionally, a [name] can be provided to identify the log message.
+/// Optionally, an [error] can be provided to log an error message.
+/// Optionally, a [stackTrace] can be provided to log a stacktrace.
 void l(
   String message, {
   LogLevel level = LogLevel.info,
@@ -45,7 +57,10 @@ void l(
   }
 }
 
+/// Logger separator "-" for the [l] function.
 void logUpperLine({LogLevel level = LogLevel.info}) =>
     l('———————————————————————————————————————————', level: level);
+
+/// Logger separator "_" for the [l] function.
 void logBottomLine({LogLevel level = LogLevel.info}) =>
     l('___________________________________________', level: level);

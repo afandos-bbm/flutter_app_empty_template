@@ -12,25 +12,27 @@ import 'package:flutter_app_empty_template/utils/logger.dart';
 class AppBlocObserver extends BlocObserver {
   const AppBlocObserver();
 
+  /// Logs all bloc and cubit creations.
   @override
   void onCreate(BlocBase<dynamic> bloc) {
     l('', name: '🆕 onCreate - ${bloc.runtimeType}');
     super.onCreate(bloc);
   }
 
+  /// Logs all bloc and cubit transitions.
   @override
   void onChange(BlocBase<dynamic> bloc, Change<dynamic> change) {
     l(
-      '${findStringDifferences(
-        change.currentState.toString(),
-        change.nextState.toString(),
-      )}',
+      '${change.currentState.toString().findDifferences(
+            change.nextState.toString(),
+          )}',
       name: '⛓️ onChange - ${bloc.runtimeType}',
     );
 
     super.onChange(bloc, change);
   }
 
+  /// Logs all bloc and cubit errors.
   @override
   void onError(BlocBase<dynamic> bloc, Object error, StackTrace stackTrace) {
     l(
@@ -58,6 +60,7 @@ Future<void> bootstrap(FutureOr<Widget> Function() builder) async {
 
   /// Shows a custom error widget instead of the default Flutter error widget.
   ErrorWidget.builder = (FlutterErrorDetails errorDetails) {
+    // TODO: Implement a custom error widget
     return Container(
       color: Colors.red,
       child: const Center(
@@ -72,6 +75,7 @@ Future<void> bootstrap(FutureOr<Widget> Function() builder) async {
   /// Initializes the Widgets library for the application. (prevent errors)
   WidgetsFlutterBinding.ensureInitialized();
 
+  /// Initializes the bloc logger.
   Bloc.observer = const AppBlocObserver();
 
   /// Initializes the service locator.
