@@ -3,5 +3,9 @@
     "appName": "Template App",
     "@appName": {
         "description": "The name of the app"
+    },
+    "error_generic": "An error occurred",
+    "@error_generic": {
+        "description": "Generic error message"
     }
 }

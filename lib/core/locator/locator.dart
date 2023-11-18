@@ -1,6 +1,6 @@
 import 'package:flutter_app_empty_template/core/shared_preferences_service/shared_preferences_service.dart';
 import 'package:flutter_app_empty_template/core/theme_service/theme_service.dart';
-import 'package:flutter_app_empty_template/utils/app_info.dart';
+import 'package:flutter_app_empty_template/utils/device_info.dart';
 import 'package:get_it/get_it.dart';
 
 final GetIt locator = GetIt.instance;
@@ -13,7 +13,11 @@ Future<void> initGetIt() async {
     SharedPreferencesService.initSharedPreferencesService,
   );
 
+  await locator.isReady<SharedPreferencesService>();
+
   // * Core
   locator.registerLazySingleton<ThemeService>(ThemeService.new);
-  locator.registerLazySingleton<AppInfo>(AppInfo.new);
+  locator.registerLazySingleton<DeviceInfo>(DeviceInfo.new);
+
+  // TODO: Register your services here
 }

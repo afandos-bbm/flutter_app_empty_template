@@ -8,6 +8,8 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_localized_locales/flutter_localized_locales.dart';
 import 'package:provider/provider.dart';
 
+/// MaterialApp widget that initializes the app.
+/// It is the root of the app.
 class App extends StatelessWidget {
   const App({super.key});
 
@@ -15,6 +17,8 @@ class App extends StatelessWidget {
   Widget build(BuildContext context) {
     return ChangeNotifierProvider<ThemeService>(
       create: (_) => ThemeService(),
+
+      /// Initializes the app with the BlocProviderStore.
       child: BlocProviderStore.init(
         child: Consumer<ThemeService>(
           builder: (_, themeService, __) {
@@ -22,7 +26,8 @@ class App extends StatelessWidget {
               builder: (context, state) {
                 final selectedLocale = Locale(state.selectedLanguage);
                 return MaterialApp.router(
-                  title: 'We Cancer Survivors',
+                  // TODO: Add your app name (Remember to add it in all references [arb_file, pubspec.yaml, IOS, Android,...])
+                  title: 'App Name',
                   debugShowCheckedModeBanner: false,
                   localizationsDelegates: const [
                     ...AppLocalizations.localizationsDelegates,
