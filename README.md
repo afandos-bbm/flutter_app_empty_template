@@ -1,6 +1,6 @@
 # 🌹 Flutter Project Template
 
-## VERSION Template - v0.0.1 - 18-11-2023
+## VERSION Template - v0.0.1 - 30-01-2024
 
 ![GitHub license](https://img.shields.io/github/license/afandos-bbm/flutter_app_empty_template?style=flat-square)
 
