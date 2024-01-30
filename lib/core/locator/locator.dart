@@ -19,5 +19,5 @@ Future<void> initGetIt() async {
   locator.registerLazySingleton<ThemeService>(ThemeService.new);
   locator.registerLazySingleton<DeviceInfo>(DeviceInfo.new);
 
-  // TODO: Register your services here
+  // TODO(developer): Register your services here
 }

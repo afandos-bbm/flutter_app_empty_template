@@ -26,7 +26,7 @@ class App extends StatelessWidget {
               builder: (context, state) {
                 final selectedLocale = Locale(state.selectedLanguage);
                 return MaterialApp.router(
-                  // TODO: Add your app name (Remember to add it in all references [arb_file, pubspec.yaml, IOS, Android,...])
+                  // TODO(developer): Add your app name (Remember to add it in all references [arb_file, pubspec.yaml, IOS, Android,...])
                   title: 'App Name',
                   debugShowCheckedModeBanner: false,
                   localizationsDelegates: const [

@@ -10,14 +10,14 @@ final Map<CurrentTheme, ThemeData> themes = {
 };
 
 /// Light theme
-/// TODO: Add your custom light theme here
+// TODO(developer): Add your custom light theme here
 final ThemeData _lightTheme = ThemeData(
   useMaterial3: true,
   brightness: Brightness.light,
 );
 
 /// Dark theme
-/// TODO: Add your custom dark theme here
+// TODO(developer): Add your custom dark theme here
 final ThemeData _darkTheme = ThemeData(
   useMaterial3: true,
   brightness: Brightness.dark,

@@ -20,7 +20,7 @@ class ConfigurationService {
   ConfigurationService({
     required this.flavor,
   }) {
-    // TODO: Add the correct urls for each flavor
+    // TODO(developer): Add the correct urls for each flavor
     switch (flavor) {
       case Flavor.development:
         _config = Configuration(

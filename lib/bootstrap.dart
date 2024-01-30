@@ -4,9 +4,9 @@ import 'dart:developer';
 import 'package:bloc/bloc.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_app_empty_template/core/locator/locator.dart';
-import 'package:flutter_web_plugins/url_strategy.dart';
 import 'package:flutter_app_empty_template/utils/extensions/string_extensions.dart';
 import 'package:flutter_app_empty_template/utils/logger.dart';
+import 'package:flutter_web_plugins/url_strategy.dart';
 
 /// Listens to all bloc and cubit instances and logs all transitions and errors.
 class AppBlocObserver extends BlocObserver {
@@ -60,10 +60,10 @@ Future<void> bootstrap(FutureOr<Widget> Function() builder) async {
 
   /// Shows a custom error widget instead of the default Flutter error widget.
   ErrorWidget.builder = (FlutterErrorDetails errorDetails) {
-    // TODO: Implement a custom error widget
-    return Container(
+    // TODO(developer): Implement a custom error widget
+    return const ColoredBox(
       color: Colors.red,
-      child: const Center(
+      child: Center(
         child: Text(
           'An error has occurred.',
           style: TextStyle(color: Colors.white),

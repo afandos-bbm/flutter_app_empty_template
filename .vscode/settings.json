@@ -2,7 +2,21 @@
     "cSpell.words": [
         "cupertino",
         "genhtml",
-        "lcov"
+        "lcov",
+        "pubspec"
+    ],
+    "cSpell.ignorePaths": [
+        "package-lock.json",
+        "node_modules",
+        "vscode-extension",
+        ".git/objects",
+        ".vscode",
+        ".vscode-insiders",
+        ".dart_tool",
+        ".idea",
+        "pubspec.lock",
+        "pubspec.yaml",
+        "analysis_options.yaml",
     ],
     "files.exclude": {
         "**/*.freezed.dart": true,
